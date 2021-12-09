@@ -1,0 +1,60 @@
+<head>
+    <h1>Calculator</h1>
+</head>
+<body>
+    <div class="container">
+      <div class="header">Calculator</div>
+      <input type="text" class="result" id = "resultString" value = "">
+      <div class="first-row">
+        <input type="button" name="radic" onclick="insertValue('&radic;')" value="&radic;" class="global">
+        <input type="button" name="" value="(" onclick="insertValue('(')" class="global">
+        <input type="button" name="" value=")" onclick="insertValue(')')" class="global">
+        <input type="button" name="" value="%" onclick="insertValue('%')"  class="global">
+      </div>
+      <div class="second-row">
+        <input type="button" name="" value="7" onclick="insertValue('7')" class="global">
+        <input type="button" name="" value="8" onclick="insertValue('8')" class="global">
+        <input type="button" name="" value="9" onclick="insertValue('9')" class="global">
+        <input type="button" name="" value="/" onclick="insertValue('/')" class="global">
+      </div>
+      <div class="third-row">
+        <input type="button" name="" value="4" onclick="insertValue('4')" class="global">
+        <input type="button" name="" value="5" onclick="insertValue('5')" class="global">
+        <input type="button" name="" value="6" onclick="insertValue('6')" class="global">
+        <input type="button" name="" value="X" onclick="insertValue('*')" class="global">
+      </div>
+      <div class="fourth-row">
+        <input type="button" name="" value="1" onclick="insertValue('1')" class="global">
+        <input type="button" name="" value="2" onclick="insertValue('2')" class="global">
+        <input type="button" name="" value="3" onclick="insertValue('3')" class="global">
+        <input type="button" name="" value="-" onclick="insertValue('-')" class="global">
+      </div>
+      <div class="conflict">
+        <div class="left">
+          <input type="button" name="" value="0" onclick="insertValue('0')" class=" big">
+          <input type="button" name="" value="." onclick="insertValue('.')" class=" small">
+          <input type="button" name="" value="Del" onclick="clearField()" class=" red small white-text top-margin">
+          <input type="button" name="" value="=" onclick="calculate()" class=" green white-text big top-margin">
+        </div>
+        <div class="right">
+          <input type="button" name="" value="+" class="global grey plus">
+        </div>
+      </div>
+    </div>
+<script>
+ function insertValue(toInsertValue) {
+  var element = document.getElementById('resultString');
+  console.log(element.value);
+  element.setAttribute('value',element.getAttribute('value') + toInsertValue);
+  console.log(element.value);
+  }   
+  function clearField(){
+    var element = document.getElementById('resultString');
+    element.setAttribute('value','');
+  }
+  function calculate(){
+    var element = document.getElementById('resultString');
+    element.setAttribute('value', eval(element.getAttribute('value').replace(/[^-()\d/*+.]/g, '')));
+  }
+</script>
+</body>
